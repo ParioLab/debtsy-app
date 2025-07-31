@@ -8,7 +8,11 @@ import {
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  title?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ title = 'Home' }) => {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" backgroundColor="#FFFFFF" />
@@ -24,7 +28,7 @@ const Header: React.FC = () => {
           </TouchableOpacity>
         </View>
         
-        <Text style={styles.headerTitle}>Home</Text>
+        <Text style={styles.headerTitle}>{title}</Text>
         
         <View style={styles.headerRight}>
           <TouchableOpacity style={styles.notificationsButton}>
